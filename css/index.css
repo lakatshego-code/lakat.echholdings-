@@ -153,4 +153,5 @@ footer {
     nav ul li { display: block; margin: 12px 0; }
 }
 
-.blog-intro { text-align: center; }
+.hero { text-align: center; }
+.hero p { font-size: 18px; }

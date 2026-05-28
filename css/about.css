@@ -1,53 +1,157 @@
+:root {
+    --primary: #00bfff;
+    --primary-dark: #0077ff;
+    --navy: #0a2540;
+    --dark: #020617;
+    --panel: #0f172a;
+    --text-soft: #cbd5e1;
+    --line: rgba(0, 191, 255, 0.25);
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            background-color: #0a2540;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(circle at top, #0a2540, #020617);
+    color: white;
+    min-height: 100vh;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(10, 37, 64, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 191, 255, 0.3);
+}
 
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 34px;
+    letter-spacing: 1px;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
+header img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 15px;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px var(--primary), 0 0 40px rgba(0, 191, 255, 0.5);
+    transition: 0.4s;
+}
 
-        nav ul li a:hover {
-            color: #00bfff;
-        }
+header img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px var(--primary), 0 0 60px rgba(0, 191, 255, 0.8);
+}
 
-        section {
-            padding: 40px;
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
 
-        h2 {
-            color: #0a2540;
-        }
+nav ul li {
+    display: inline-block;
+    margin: 8px 12px;
+}
 
-        p {
-            color: #555;
-            line-height: 1.6;
-        }
+nav ul li a {
+    color: #cfe9ff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
 
-        footer {
-            background-color: #0a2540;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-    
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+p, li {
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card, .container, .content-panel {
+    background: linear-gradient(145deg, #0f172a, #020617);
+    border-radius: 15px;
+    padding: 24px;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
+    transition: 0.4s;
+}
+
+.card:hover, .container:hover, .content-panel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.55);
+}
+
+.card h3, .content-panel h3, .container h1 {
+    color: white;
+}
+
+.button, button, .tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    border-top: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+@media (max-width: 600px) {
+    header h1 { font-size: 28px; }
+    section { margin: 35px auto; }
+    nav ul li { display: block; margin: 12px 0; }
+}
+
+.about-panel p { max-width: 900px; margin: 0 auto 20px; }
+.about-panel h2:not(:first-child) { margin-top: 35px; }

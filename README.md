@@ -74,23 +74,20 @@ JavaScript
 GitHub for version control
 Project Structure
 Laka-Tech-Website/
-│
-├── index.html
-├── about.html
-├── services.html
-├── portfolio.html
-├── blog.html
-├── contact.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── script.js
-│
-├── images/
-│
-└── README.md
+
+ index.html
+ about.html
+ services.html
+ portfolio.html
+ blog.html
+ contact.html
+  css
+  style.css
+  js
+ script.js
+ images
+
+README.md
 User Experience Considerations
 
 The website is designed with usability and accessibility in mind by ensuring:

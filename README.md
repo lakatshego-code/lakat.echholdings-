@@ -137,3 +137,49 @@ Norman, D.A. (2013) The Design of Everyday Things. Revised edn. New York: Basic 
 at.echholdings
 Tshegofatso , L (2026) . created my own pictures
 
+
+## Implemented Assessment Requirements
+
+The website has been updated to include the following required functionality:
+
+1. Interactive elements including active navigation, clickable call-to-action buttons, hover states, selectable service cards and portfolio filtering.
+2. Interactive map embedded on the Contact page.
+3. Gallery lightbox on the Portfolio page for viewing project screenshots.
+4. Dynamic content and search features on the Services and Blog pages.
+5. SEO title tags across all pages.
+6. SEO meta keywords across all pages.
+7. SEO meta descriptions across all pages.
+8. SEO-friendly image file names and descriptive alt text.
+9. Enquiry form controls on the Contact page.
+10. Enquiry form validation for required fields and email format.
+11. Enquiry form response message with email process support.
+12. Contact form controls on the Contact page.
+13. Contact form validation for required fields and email format.
+14. Contact form email processing using a mailto email handoff.
+15. GitHub repository should be pushed with multiple descriptive commits after these updates.
+16. README contains project overview, technologies, features, structure and assessment coverage.
+17. CHANGELOG contains a record of development updates.
+18. References are included below.
+19. Website can be deployed using GitHub Pages, Netlify or Vercel.
+
+## Deployment
+
+Recommended deployment option: GitHub Pages.
+
+Steps:
+1. Push the project to GitHub.
+2. Open the repository settings.
+3. Go to Pages.
+4. Select the `main` branch and root folder.
+5. Save and copy the generated live website link.
+
+Live Website URL: Add your deployed website link here after publishing.
+
+## Additional References
+
+- MDN Web Docs. Available at: https://developer.mozilla.org/
+- W3Schools. Available at: https://www.w3schools.com/
+- Google Fonts. Available at: https://fonts.google.com/
+- Font Awesome. Available at: https://fontawesome.com/
+- Google Maps Platform. Available at: https://maps.google.com/
+- GitHub Pages Documentation. Available at: https://docs.github.com/en/pages

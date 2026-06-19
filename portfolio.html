@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View Laka T.ech Holdings portfolio projects, achievements and technology solutions delivered for modern businesses.">
+    <meta name="keywords" content="Laka Tech Holdings, software development, web development, mobile app development, IT consulting, cybersecurity, cloud solutions, South Africa, digital transformation">
+    <meta name="author" content="Laka T.ech Holdings">
     <title>Portfolio - Laka T.ech Industry</title>
      <link rel="stylesheet" href="css/portfolio.css">
 </head>
@@ -24,9 +27,25 @@
 
 <section class="content-panel">
     <h2>Our Work</h2>
+    <label for="projectFilter" class="form-label">Filter Projects</label>
+    <select id="projectFilter" class="search-box">
+        <option value="all">All Projects</option>
+        <option value="Completed">Completed</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Planned">Planned</option>
+    </select>
+    <div class="gallery-grid" aria-label="Project gallery">
+        <img src="images/smartbiz-management-system-dashboard.jfif" class="gallery-img" alt="SmartBiz management system dashboard screenshot">
+        <img src="images/responsive-website-project-preview.jfif" class="gallery-img" alt="Responsive website project preview on mobile and desktop">
+        <img src="images/cloudsync-backup-solution-interface.jfif" class="gallery-img" alt="CloudSync backup solution interface screenshot">
+    </div>
+    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+        <button id="closeLightbox" class="close-lightbox" type="button" aria-label="Close image preview">&times;</button>
+        <img id="lightboxImg" alt="Expanded portfolio image preview">
+    </div>
     
     <ol class="portfolio-list">
-    <li><h3>SmartBiz Management System</h3>
+    <li class="project-item searchable" data-status="Completed"><h3>SmartBiz Management System</h3>
     <ul>
 		<li>Description: A business management platform for SMEs</li>
 	<li>Features: Inventory, payroll, reporting</li>
@@ -35,7 +54,7 @@
     </ul></li>
 
 
-<li><h3>LakaPay Mobile App</h3>
+<li class="project-item searchable" data-status="Ongoing"><h3>LakaPay Mobile App</h3>
     <ul>
 	<li>Description: Mobile payment and transaction app</li>
 	<li>Features: Secure payments, transaction history</li>
@@ -45,7 +64,7 @@
 
 
 
-<li><h3>EduTech Portal</h3>
+<li class="project-item searchable" data-status="Completed"><h3>EduTech Portal</h3>
      <ul>
 	<li>Description: Online learning management system</li>
 	<li>Features: Course management, student tracking</li>
@@ -54,7 +73,7 @@
     </ul></li>
 
 
-<li><h3>CloudSync Backup Solution</h3>
+<li class="project-item searchable" data-status="Planned"><h3>CloudSync Backup Solution</h3>
      <ul>
 	<li>Description: Cloud-based data backup system</li>
 	<li>Features: Secure storage, automated backups</li>
@@ -90,8 +109,99 @@
 <footer>
     <p>&copy; 2026 Laka T.ech Industry</p>
 </footer>
-<script src="javascript/portfolio.js"></script>
+<script>
+  function highlightActiveNav() {
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+}
+
+function initPortfolioFilters() {
+  const filterSelect = document.getElementById('projectFilter');
+  const projectCards = document.querySelectorAll('.project-item');
+
+  if (!filterSelect || projectCards.length === 0) return; // Skips if elements are missing
+
+  filterSelect.addEventListener('change', (e) => {
+    const activeFilter = e.target.value;
+
+    projectCards.forEach(card => {
+      const cardStatus = card.getAttribute('data-status');
+      
+      if (activeFilter === 'all' || cardStatus === activeFilter) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+}
+
+function setupHeroButton() {
+  const ctaButton = document.getElementById('ctaButton');
+  if (!ctaButton) return;
+
+  ctaButton.addEventListener('click', () => {
+    window.location.href = 'contact.html';
+  });
+}
+
+function renderBlogPosts() {
+  const introSection = document.querySelector('.blog-intro');
+  if (!introSection) return;
+
+  const sampleArticles = [
+    { title: "The Future of AI in Tech Industries", date: "June 15, 2026", excerpt: "Discover how automated systems are shaping the modern corporate workspace.", link: "#" },
+    { title: "Mastering Clean Code: Structural Tips", date: "May 28, 2026", excerpt: "Simple conventions and semantic habits to improve your web architecture.", link: "#" }
+  ];
+
+  const postContainer = document.createElement('div');
+  postContainer.className = 'blog-posts-container';
+
+  sampleArticles.forEach(post => {
+    postContainer.innerHTML += `
+      <article class="blog-card" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <h3>${post.title}</h3>
+        <small style="color: #666;">${post.date}</small>
+        <p>${post.excerpt}</p>
+        <a href="${post.link}">Read Full Article</a>
+      </article>
+    `;
+  });
+
+  introSection.appendChild(postContainer);
+}
+
+function handleFormSubmission() {
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+  if (!form || !feedback) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('userName').value.trim();
+    feedback.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+    feedback.style.color = "green";
+    form.reset();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightActiveNav();
+  initPortfolioFilters();
+  setupHeroButton();
+  renderBlogPosts();
+  handleFormSubmission();
+});
+  
+</script>
 
 
+    <script src="javascript/common.js"></script>
 </body>
 </html>

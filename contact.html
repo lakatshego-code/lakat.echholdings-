@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Laka T.ech Holdings for software development, IT consulting and technology solution enquiries in South Africa.">
+    <meta name="keywords" content="Laka Tech Holdings, software development, web development, mobile app development, IT consulting, cybersecurity, cloud solutions, South Africa, digital transformation">
+    <meta name="author" content="Laka T.ech Holdings">
     <title>Contact - Laka T.ech Industry</title>
     <link rel="stylesheet" href="css/contact.css">
 </head>
@@ -23,19 +26,71 @@
 
 <section>
     <div class="container">
-    <h1>Contact Us</h1>
-    
-    <p>
-        We’d love to hear from you. please feel free to reach out.
-    </p>
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you. Please feel free to reach out.</p>
 
-    <div class="contact-info">
-        <p><strong>Email:</strong> lakat.echholdings@gmail.com</p>
-        <p><strong>Phone:</strong> +27 11 726 3426</p>
-        <p><strong>Location:</strong> South Africa</p>
-        <p><strong>Operating Hours:</strong> Monday – Friday: 09:00 – 17:00</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:lakat.echholdings@gmail.com">lakat.echholdings@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+27117263426">+27 11 726 3426</a></p>
+            <p><strong>Location:</strong> South Africa</p>
+            <p><strong>Operating Hours:</strong> Monday – Friday: 09:00 – 17:00</p>
+        </div>
+
+        <div class="map-wrapper">
+            <h2>Find Us</h2>
+            <iframe title="Laka T.ech Holdings location map" src="https://www.google.com/maps?q=South%20Africa&output=embed" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
-    
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <h2>Enquiry Form</h2>
+        <form id="enquiryForm" class="website-form" novalidate>
+            <label for="enquiryName">Full Name</label>
+            <input type="text" id="enquiryName" name="name" placeholder="Enter your full name" required>
+
+            <label for="enquiryEmail">Email Address</label>
+            <input type="email" id="enquiryEmail" name="email" placeholder="Enter your email address" required>
+
+            <label for="enquiryService">Service Required</label>
+            <select id="enquiryService" name="service" required>
+                <option value="">Select a service</option>
+                <option>Web Development</option>
+                <option>Mobile App Development</option>
+                <option>IT Consulting</option>
+                <option>Cybersecurity</option>
+                <option>Cloud Solutions</option>
+            </select>
+
+            <label for="enquiryMessage">Enquiry Details</label>
+            <textarea id="enquiryMessage" name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+
+            <button type="submit">Submit Enquiry</button>
+            <p id="enquiryFeedback" class="form-feedback" role="status"></p>
+        </form>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <h2>Contact Form</h2>
+        <form id="contactForm" class="website-form" novalidate>
+            <label for="userName">Full Name</label>
+            <input type="text" id="userName" name="name" placeholder="Enter your full name" required>
+
+            <label for="userEmail">Email Address</label>
+            <input type="email" id="userEmail" name="email" placeholder="Enter your email address" required>
+
+            <label for="userSubject">Subject</label>
+            <input type="text" id="userSubject" name="subject" placeholder="Enter message subject" required>
+
+            <label for="userMessage">Message</label>
+            <textarea id="userMessage" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+            <p id="formFeedback" class="form-feedback" role="status"></p>
+        </form>
     </div>
 </section>
 
@@ -44,5 +99,6 @@
 </footer>
 <script src="javascript/contact.js"></script>
 
+    <script src="javascript/common.js"></script>
 </body>
 </html>

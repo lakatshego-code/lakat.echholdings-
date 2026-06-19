@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laka T.ech Holdings provides software development, web development, mobile app development and IT consulting solutions in South Africa.">
+    <meta name="keywords" content="Laka Tech Holdings, software development, web development, mobile app development, IT consulting, cybersecurity, cloud solutions, South Africa, digital transformation">
+    <meta name="author" content="Laka T.ech Holdings">
     <title>Laka T.ech Industry - Home</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -11,7 +14,7 @@
 
 <header>
     <h1>Laka T.ech Industry</h1>
-   <img src="images/logo.JPG" alt="Laka Tech Logo" width ="150" >
+   <img src="images/laka-tech-holdings-logo.jpg" alt="Laka T.ech Holdings company logo" width ="150" >
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -27,14 +30,97 @@
 <section class="hero">
     <h2>Welcome to Laka T.ech Industry</h2>
     <p>We provide innovative software development and IT solutions.</p>
-    <button>Get Started</button>
+    <button id="ctaButton" type="button">Get Started</button>
 </section>
 
 <footer>
     <p>&copy; 2026 Laka T.ech Industry</p>
 </footer>
-<script src="javascript/index.js"></script>
+<script>
+   function highlightActiveNav() {
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('nav ul li a');
 
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+}
+
+function setupHeroButton() {
+  const ctaButton = document.getElementById('ctaButton');
+  if (!ctaButton) return; 
+
+  ctaButton.addEventListener('click', () => {
+    window.location.href = 'contact.html';
+  });
+}
+
+function renderBlogPosts() {
+  const introSection = document.querySelector('.blog-intro');
+  if (!introSection) return; 
+
+  const sampleArticles = [
+    {
+      title: "The Future of AI in Tech Industries",
+      date: "June 15, 2026",
+      excerpt: "Discover how automated systems are shaping the modern corporate workspace.",
+      link: "#"
+    },
+    {
+      title: "Mastering Clean Code: Structural Tips",
+      date: "May 28, 2026",
+      excerpt: "Simple conventions and semantic habits to improve your web architecture.",
+      link: "#"
+    }
+  ];
+
+  const postContainer = document.createElement('div');
+  postContainer.className = 'blog-posts-container';
+
+  sampleArticles.forEach(post => {
+    postContainer.innerHTML += `
+      <article class="blog-card" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <h3>${post.title}</h3>
+        <small style="color: #666;">${post.date}</small>
+        <p>${post.excerpt}</p>
+        <a href="${post.link}">Read Full Article</a>
+      </article>
+    `;
+  });
+
+  introSection.appendChild(postContainer);
+}
+
+function handleFormSubmission() {
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+  if (!form || !feedback) return; // Safely skips if not on contact.html
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevents the browser from reloading the page
+
+    const name = document.getElementById('userName').value.trim();
+    
+    feedback.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+    feedback.style.color = "green";
+    feedback.style.marginTop = "10px";
+
+    form.reset(); 
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightActiveNav();
+  setupHeroButton();
+  renderBlogPosts();
+  handleFormSubmission();
+});
+ 
+</script>
+
+    <script src="javascript/common.js"></script>
 </body>
 </html>
 

@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Laka T.ech Holdings services including web development, mobile applications, cybersecurity, cloud solutions and IT consulting.">
+    <meta name="keywords" content="Laka Tech Holdings, software development, web development, mobile app development, IT consulting, cybersecurity, cloud solutions, South Africa, digital transformation">
+    <meta name="author" content="Laka T.ech Holdings">
     <title>Services - Laka T.ech Industry</title>
     <link rel="stylesheet" href="css/services.css">
 </head>
@@ -24,33 +27,133 @@
 
 <section>
     <h2>What We Offer</h2>
+    <label for="searchBox" class="form-label">Search Services</label>
+    <input type="search" id="searchBox" class="search-box" placeholder="Search services such as web, cloud, cybersecurity...">
     <ul class="services-list">
-        <li>Web Development</li>
-        <li>Mobile App Development</li>
-        <li>IT Consulting</li>
-        <li>Software Solutions</li>
-        <li>CyberSecurity</li>
-        <li>Cloud Solutions</li>
-        <li>Network Infrastructure Management</li>
+        <li class="service-card searchable">Web Development</li>
+        <li class="service-card searchable">Mobile App Development</li>
+        <li class="service-card searchable">IT Consulting</li>
+        <li class="service-card searchable">Software Solutions</li>
+        <li class="service-card searchable">CyberSecurity</li>
+        <li class="service-card searchable">Cloud Solutions</li>
+        <li class="service-card searchable">Network Infrastructure Management</li>
     </ul>
     <b class="infrastructure-title">THE COMPONENTS OF IT INFRASTRUCTURE</b>
     <ul class="services-list">
-        <li>Software</li>
-        <li>Hardware</li>
-        <li>Facilities</li>
-        <li>Networks</li>
-        <li>Servers</li>
-        <li>Data Servers</li>
-        <li>People</li>
+        <li class="service-card searchable">Software</li>
+        <li class="service-card searchable">Hardware</li>
+        <li class="service-card searchable">Facilities</li>
+        <li class="service-card searchable">Networks</li>
+        <li class="service-card searchable">Servers</li>
+        <li class="service-card searchable">Data Servers</li>
+        <li class="service-card searchable">People</li>
     </ul>
 </section>
 
 <footer>
     <p>&copy; 2026 Laka T.ech Industry</p>
 </footer>
-<script src="javascript/services.js"></script>
+<script>
+ function highlightActiveNav() {
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+}
+
+function initServicesInteractions() {
+  const serviceCards = document.querySelectorAll('.service-card');
+  if (serviceCards.length === 0) return; 
+
+  serviceCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.style.transition = 'all 0.3s ease';
 
 
+    card.addEventListener('click', () => {
+      serviceCards.forEach(c => {
+        c.style.backgroundColor = '';
+        c.style.color = '';
+      });
+      card.style.backgroundColor = '#0056b3';
+      card.style.color = '#ffffff';
+    });
+  });
+}
+
+function initPortfolioFilters() {
+  const filterSelect = document.getElementById('projectFilter');
+  const projectCards = document.querySelectorAll('.project-item');
+  if (!filterSelect || projectCards.length === 0) return; 
+
+  filterSelect.addEventListener('change', (e) => {
+    const activeFilter = e.target.value;
+    projectCards.forEach(card => {
+      const cardStatus = card.getAttribute('data-status');
+      card.style.display = (activeFilter === 'all' || cardStatus === activeFilter) ? 'block' : 'none';
+    });
+  });
+}
+
+function setupHeroButton() {
+  const ctaButton = document.getElementById('ctaButton');
+  if (!ctaButton) return;
+
+  ctaButton.addEventListener('click', () => {
+    window.location.href = 'contact.html';
+  });
+}
+
+function renderBlogPosts() {
+  const introSection = document.querySelector('.blog-intro');
+  if (!introSection) return; 
+
+  const sampleArticles = [
+    { title: "The Future of AI in Tech Industries", date: "June 15, 2026", excerpt: "Discover how automated systems are shaping corporate workspaces.", link: "#" }
+  ];
+
+  const postContainer = document.createElement('div');
+  sampleArticles.forEach(post => {
+    postContainer.innerHTML += `
+      <article class="blog-card" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd;">
+        <h3>${post.title}</h3>
+        <p>${post.excerpt}</p>
+      </article>
+    `;
+  });
+  introSection.appendChild(postContainer);
+}
+
+function handleFormSubmission() {
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+  if (!form || !feedback) return; // Safely exits if not on contact.html
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('userName').value.trim();
+    feedback.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+    feedback.style.color = "green";
+    form.reset();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightActiveNav();
+  initServicesInteractions();
+  initPortfolioFilters();
+  setupHeroButton();
+  renderBlogPosts();
+  handleFormSubmission();
+});   
+</script>
+
+
+    <script src="javascript/common.js"></script>
 </body>
-</html>
 
+</html>

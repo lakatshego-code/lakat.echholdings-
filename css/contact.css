@@ -156,3 +156,21 @@ footer {
 .container { max-width: 760px; margin: 0 auto; text-align: center; }
 .contact-info { margin-top: 30px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); }
 .contact-info strong { color: #93c5fd; }
+
+.map-wrapper { margin-top: 30px; }
+.map-wrapper iframe { border-radius: 15px; box-shadow: 0 0 20px rgba(0, 191, 255, 0.2); }
+.form-section { margin-top: 20px; }
+.website-form { display: grid; gap: 14px; text-align: left; }
+.website-form label, .form-label { color: #93c5fd; font-weight: bold; }
+.website-form input, .website-form select, .website-form textarea, .search-box {
+    width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.08); color: white; outline: none;
+}
+.website-form input:focus, .website-form select:focus, .website-form textarea:focus, .search-box:focus {
+    border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 191, 255, 0.35);
+}
+.website-form select option { color: #020617; }
+.form-feedback { font-weight: bold; min-height: 24px; }
+.form-feedback.success { color: #22c55e; }
+.form-feedback.error { color: #f87171; }
+.contact-info a { color: #93c5fd; }
